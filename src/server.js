@@ -1,20 +1,18 @@
 /* EXPRESS */
 const express = require('express');
-const app = express();
 
 /* MONGOOSE */
 const mongoose =  require('mongoose');
 
-
-/* BODYPARSER */
-const bodyParser = require('body-parser');
-
 /* CONFIGS */
 require('./config/config');
 
+const app = express();
+
+
 /* MIDDLEWARES */
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({extended: false}));
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
 
 /* HEADERS & CORS */
 app.use((req, res, next) => {
@@ -29,6 +27,8 @@ app.use((req, res, next) => {
 /* ROUTES */
 app.use(require('./routes/index'));
 app.use('/api/careers', require('./routes/careers'));
+app.use('/api/users', require('./routes/users'));
+app.use('/api/login', require('./routes/login'));
 
 
 /* CONNECTION DB */
@@ -43,6 +43,7 @@ mongoose.connect('mongodb://localhost:27017/careers', {
     .then( () => {
         console.log('BD CONNECTED!');
     })
+    .catch( err => console.log(err));
 
 /* STARTING SERVER */
 app.listen(process.env.PORT, ()=>{

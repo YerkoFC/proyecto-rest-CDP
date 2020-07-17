@@ -1,11 +1,11 @@
-const Career = require('./models/career');
+const Career = require('../models/career');
 const jsonFile = require('./carreras.json');
 
 const mongoose =  require('mongoose');
 
 mongoose.Promise = global.Promise;
 
-mongoose.connect('mongodb://localhost:27017/careers', {
+mongoose.connect('mongodb://localhost:27017/<your-db-name>', {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     useCreateIndex: true,
@@ -14,6 +14,7 @@ mongoose.connect('mongodb://localhost:27017/careers', {
     .then( () => {
         console.log('BD CONNECTED!');
     })
+    .catch( err => console.log(err));
 
 let saveInDB = (jsonFile) => {
 
@@ -40,6 +41,7 @@ let saveInDB = (jsonFile) => {
         });
     })
 }
+
 saveInDB(jsonFile);
 
 mongoose.disconnect()

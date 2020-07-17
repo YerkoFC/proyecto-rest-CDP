@@ -16,17 +16,34 @@ let calculateScore = ( scores, career ) => {
     return {
         careerCode: career.codigo,
         careerName: career.carrera,
-        postulationScore: result 
+        postulationScore: result,
+        place: placeTentative(result, career)
     }
+}
 
+let placeTentative = ( score, career ) => {
+
+    let placeValue = (career.primero - career.ultimo) / career.vacantes;
+    
+    if (score >= career.primero) {
+        return 1;
+    } else {
+        let result = (career.primero - score) / placeValue;
+
+        if(Math.round(result) === 0) {
+            return 1;
+        } else {
+            return Math.round(result);
+        }   
+    }   
 }
 
 let topTenScores =  ( scores, careers ) => {
 
     let scoresArray = [];
 
-    careers.forEach( (element, index) => {
-        scoresArray.push(calculateScore(scores, careers[index]));
+    careers.forEach( element => {
+        scoresArray.push(calculateScore(scores, element));
     });
 
     scoresArray.sort( (a, b) => {
@@ -39,7 +56,7 @@ let topTenScores =  ( scores, careers ) => {
         }
         return 0; 
     });
-
+    
     return scoresArray.slice(0, 10);
 
 }
