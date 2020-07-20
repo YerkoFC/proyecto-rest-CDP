@@ -5,7 +5,7 @@ const mongoose =  require('mongoose');
 
 mongoose.Promise = global.Promise;
 
-mongoose.connect('mongodb://localhost:27017/<your-db-name>', {
+mongoose.connect('mongodb+srv://yerko-tarea-rest:PTFUzgJIMmXAkUIY@cluster0.pf7kk.mongodb.net/careers?retryWrites=true&w=majority', {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     useCreateIndex: true,
@@ -43,9 +43,5 @@ let saveInDB = (jsonFile) => {
 }
 
 saveInDB(jsonFile);
-
-mongoose.disconnect()
-    .then( ( ) => console.log('DB DISCONNECTED'))
-    .catch( err => console.log(err));
 
 

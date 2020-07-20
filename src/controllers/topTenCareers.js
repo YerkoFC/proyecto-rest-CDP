@@ -25,15 +25,15 @@ let placeTentative = ( score, career ) => {
 
     let placeValue = (career.primero - career.ultimo) / career.vacantes;
     
-    if (score >= career.primero) {
+    if ( score >= career.primero ) {
         return 1;
     } else {
         let result = (career.primero - score) / placeValue;
 
-        if(Math.round(result) === 0) {
+        if(Math.round( result ) === 0) {
             return 1;
         } else {
-            return Math.round(result);
+            return Math.round( result );
         }   
     }   
 }

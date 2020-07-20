@@ -16,8 +16,8 @@ router.get('/code', verifyToken ,( req, res ) => {
 
     let codCareer = parseInt(req.query.cod);
   
-    if(!codCareer) {
-        return res.status(400).json({
+    if( !codCareer ) {
+        return res.status( 400 ).json({
             ok: false,
             err: {
                 message: 'Código de carrera requerido como query param'
@@ -71,7 +71,7 @@ router.get('/name', verifyToken ,(req, res) => {
             return res.status( 404 ).json({
                 ok: false,
                 err: {
-                    message: `Las carreras ingresadas no tienen información asociada`
+                    message: `Las carreras ingresadas no tienen alguna información asociada en la base de datos`
                 }
             });
         }
@@ -90,13 +90,13 @@ router.post('/scores', [verifyToken, getCareers], (req, res) => {
     let careers = req.careers,
         scores = req.body;
 
-    if( Object.keys(scores).length === 0 ) {
-        return res.status(400).json({
+    if( Object.keys( scores ).length === 0 || Object.keys( scores ).length < 6) {
+        return res.status( 400 ).json({
             ok: false,
             err: {
                 message: 'Parametros requeridos'
             }
-        })
+        });
     }
 
     res.json({

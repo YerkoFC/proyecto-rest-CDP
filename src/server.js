@@ -9,7 +9,6 @@ require('./config/config');
 
 const app = express();
 
-
 /* MIDDLEWARES */
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -28,13 +27,12 @@ app.use((req, res, next) => {
 app.use(require('./routes/index'));
 app.use('/api/careers', require('./routes/careers'));
 app.use('/api/users', require('./routes/users'));
-app.use('/api/login', require('./routes/login'));
 
 
 /* CONNECTION DB */
 mongoose.Promise = global.Promise;
 
-mongoose.connect('mongodb://localhost:27017/careers', {
+mongoose.connect(process.env.URLDB, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     useCreateIndex: true,
