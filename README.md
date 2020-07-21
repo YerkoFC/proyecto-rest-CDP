@@ -94,8 +94,8 @@ Para el testing de la aplicación se pueden utilizar alguna de las siguientes he
         "ok": true,
         "usuario": {
             "_id": "5f1546cd22c97b0017fc87ad",
-            "username": "Yerko Foncea Castro",
-            "email": "yerkofoncea.97@gmail.com",
+            "username": "user-name-test",
+            "email": "user-email-test@gmail.com",
             "__v": 0
         },
         "token":    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3VhcmlvIjp7Il9pZCI6IjVmMTU0NmNkMjJjOTdiMDAxN2ZjODdhZCIsInVzZXJuYW1lIjoiWWVya28gRm9uY2VhIENhc3RybyIsImVtYWlsIjoieWVya29mb25jZWEuOTdAZ21haWwuY29tIiwiX192IjowfSwiaWF0IjoxNTk1MzAyMDQ4LCJleHAiOjE1OTUzMDQ2NDB9.gCjwXGN6OYLL-keatkUN3ie5msNJu3TssJHNGfHvJGo"
