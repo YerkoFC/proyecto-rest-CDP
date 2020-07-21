@@ -283,7 +283,7 @@ Para el testing de la aplicación se pueden utilizar alguna de las siguientes he
 
  **Respuestas:**
     
-    - Código: 200
+   - Código: 200
       - Descripción: Información de las 10 mejores
       - Ejemplo: 
       
@@ -305,8 +305,9 @@ Para el testing de la aplicación se pueden utilizar alguna de las siguientes he
               }, ...
           ]
       }
+      ```
       
-    - Código: 400
+      - Código: 400
         - Descripción: Error en la petición
         - Ejemplo: 
         ```
@@ -319,7 +320,7 @@ Para el testing de la aplicación se pueden utilizar alguna de las siguientes he
         ```      
       
       
-      ```      
+            
      - Código: 401
         - Descripción: No autorizado
         - Ejemplo: 
