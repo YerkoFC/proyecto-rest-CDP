@@ -32,7 +32,7 @@ app.use('/api/users', require('./routes/users'));
 /* CONNECTION DB */
 mongoose.Promise = global.Promise;
 
-mongoose.connect(process.env.URLDB, {
+mongoose.connect('mongodb://localhost:27017/careers', {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     useCreateIndex: true,

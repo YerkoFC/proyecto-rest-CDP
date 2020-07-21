@@ -10,8 +10,8 @@ let verifyToken = ( req, res, next ) => {
 
     jwt.verify( token, process.env.SEED_JWT , (err, decoded) => {
         
-        if(err) {
-            return res.status(401).json({
+        if( err ) {
+            return res.status( 401 ).json({
                 ok: false,
                 err: {
                     message: 'Token no válido'

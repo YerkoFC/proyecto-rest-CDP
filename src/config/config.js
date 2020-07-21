@@ -23,14 +23,14 @@ process.env.URLDB = urlDB;
 //  SEED
 // ====================
 
-process.env.SEED_AUTH = process.env.SEED_AUTH || 'este-es-el-seed-desarrollo';
+process.env.SEED_JWT = process.env.SEED_JWT || 'este-es-el-seed-desarrollo';
 
 // ====================
-//  TOKEN 
+//  TOKEN EXPIRATION
 // ====================
-// 60 SEG
+// 60 SEC
 // 60 MIN
-// 24 HORAS
-// 30 DIAS
+// 24 HRS
+// 30 DAYS
 
-process.env.CADUCIDAD_TOKEN = 60 * 60 * 24 * 30;
+process.env.EXPIRATION_TOKEN = 60 * 60 * 24 * 30;

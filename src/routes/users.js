@@ -14,13 +14,13 @@ router.post('/signup', (req, res) => {
     let user = new User({
         username: body.username,
         email: body.useremail,
-        password:  bcrypt.hashSync(body.userpassword, 10)
+        password: bcrypt.hashSync(body.userpassword, 10)
     });
 
-    user.save( (err, userDB) => {
+    user.save((err, userDB) => {
 
-        if( err ) {
-            return res.status( 400 ).json({
+        if (err) {
+            return res.status(400).json({
                 ok: false,
                 err
             });
@@ -38,17 +38,17 @@ router.post('/signin', (req, res) => {
 
     let body = req.body;
 
-    User.findOne({ email: body.email }, ( err, userDB)  => {
+    User.findOne({ email: body.email }, (err, userDB) => {
 
-        if( err ){
-            return res.status( 500 ).json({
+        if (err) {
+            return res.status(500).json({
                 ok: false,
                 err
             });
         }
 
-        if( !userDB ) {
-            return res.status( 400 ).json({
+        if (!userDB) {
+            return res.status(400).json({
                 ok: false,
                 err: {
                     message: '(Usuario) o contraseña incorrectos'
@@ -56,8 +56,8 @@ router.post('/signin', (req, res) => {
             });
         }
 
-        if( !bcrypt.compareSync(body.password, userDB.password) ){
-            return res.status( 400 ).json({
+        if (!bcrypt.compareSync(body.password, userDB.password)) {
+            return res.status(400).json({
                 ok: false,
                 err: {
                     message: 'Usuario o (contraseña) incorrectos'
@@ -67,7 +67,7 @@ router.post('/signin', (req, res) => {
 
         let token = jwt.sign({
             usuario: userDB
-        }, process.env.SEED_JWT, { expiresIn: 60 * 60 * 24 * 30 });
+        }, process.env.SEED_JWT, { expiresIn: process.env.EXPIRATION_TOKEN });
 
         res.json({
             ok: true,
