@@ -195,7 +195,11 @@ Para el testing de la aplicación se pueden utilizar alguna de las siguientes he
         career1:     Dibujante Proyectista
         career2:     Ingeniería Civil en Computación, mención Informática
     ```
-    
+    **Headers:** 
+    ``` 
+        KEY        VALUE
+        token:     your-token
+    ```
     **Respuestas:**
     
     - Código: 200
@@ -267,7 +271,11 @@ Para el testing de la aplicación se pueden utilizar alguna de las siguientes he
 - **[POST] _/api/careers/scores_**
 
     **Request body:** application/x-www-form-urlencoded
-    
+    **Headers:** 
+    ``` 
+        KEY        VALUE
+        token:     your-token
+    ```
     **Ejemplo:**
     
     ``` 
