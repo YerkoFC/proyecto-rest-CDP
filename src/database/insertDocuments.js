@@ -5,7 +5,7 @@ const mongoose =  require('mongoose');
 
 mongoose.Promise = global.Promise;
 
-mongoose.connect('mongodb+srv://yerko-tarea-rest:PTFUzgJIMmXAkUIY@cluster0.pf7kk.mongodb.net/careers?retryWrites=true&w=majority', {
+mongoose.connect('mongodb://localhost:27017/careers', {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     useCreateIndex: true,
