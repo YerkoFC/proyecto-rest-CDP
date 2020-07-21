@@ -40,7 +40,7 @@ Para el testing de la aplicación se pueden utilizar alguna de las siguientes he
         useremail:    user-email-test@gmail.com
         userpassword: 123456
     ```
-    **Las KEYS establecidas debe tener si o si los nombres del ejemplo!**
+    **Las KEYS establecidas deben tener si o si los nombres del ejemplo!**
     
     **Respuestas:**
     
@@ -124,7 +124,7 @@ Para el testing de la aplicación se pueden utilizar alguna de las siguientes he
         KEY        VALUE
         token:     your-token
     ```
-    **Las KEYS establecidas debe tener si o si los nombres del ejemplo!**
+    **Las KEYS establecidas deben tener si o si los nombres del ejemplo!**
 
     **Respuestas:**
     
@@ -279,57 +279,57 @@ Para el testing de la aplicación se pueden utilizar alguna de las siguientes he
         ciencias:       369
         historia:       600
     ```
-    **Las KEYS establecidas debe tener si o si los nombres del ejemplo!**
+    **Las KEYS establecidas deben tener si o si los nombres del ejemplo!**
 
- **Respuestas:**
-    
+   **Respuestas:**
    - Código: 200
-      - Descripción: Información de las 10 mejores
+      - Descripción: Información de las 10 carreras con mayor posibilidad de postular
       - Ejemplo: 
+      ```
+         {
+             "ok": true,
+             "data": [
+                 {
+                     "careerCode": 21002,
+                     "careerName": "Bibliotecología y Documentación",
+                     "postulationScore": 715,
+                     "place": 1
+                 },
+                 {
+                     "careerCode": 21012,
+                     "careerName": "Contador Público y Auditor",
+                     "postulationScore": 682.5,
+                     "place": 1
+                 }, ...
+             ]
+         }
+     ```
+
+
       
+   - Código: 400
+      - Descripción: Error en la petición
+      - Ejemplo: 
       ```
       {
-          "ok": true,
-          "data": [
-              {
-                  "careerCode": 21002,
-                  "careerName": "Bibliotecología y Documentación",
-                  "postulationScore": 715,
-                  "place": 1
-              },
-              {
-                  "careerCode": 21012,
-                  "careerName": "Contador Público y Auditor",
-                  "postulationScore": 682.5,
-                  "place": 1
-              }, ...
-          ]
+          "ok": false,
+          "err": {
+              "message": "Hay datos faltantes en el body de la petición"
+          }
       }
-      ```
-      
-      - Código: 400
-        - Descripción: Error en la petición
-        - Ejemplo: 
-        ```
-        {
-            "ok": false,
-            "err": {
-                "message": "Hay datos faltantes en el body de la petición"
-            }
-        }
-        ```      
+      ```      
       
       
             
-     - Código: 401
-        - Descripción: No autorizado
-        - Ejemplo: 
-        ```
-        {
-            "ok": false,
-            "err": {
-                "message": "Token no válido"
-            }
-        }
-        ```      
+   - Código: 401
+      - Descripción: No autorizado
+      - Ejemplo: 
+      ```
+      {
+          "ok": false,
+          "err": {
+              "message": "Token no válido"
+          }
+      }
+      ```      
     
